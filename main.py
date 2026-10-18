@@ -38,6 +38,7 @@ p.add_argument("--title", required=True, help="Task title")
 
 p = commands.add_parser("list", help="Show projects and tasks")
 p.add_argument("--user", help="Only show this user (optional)")
+commands.add_parser("list-users", help="Show all users")
 
 args = parser.parse_args()
 
@@ -90,4 +91,8 @@ elif args.command == "list":
                 mark = "x" if task.done else " "
                 print("    [" + mark + "]", task.title)
 
-storage.save(users)
+elif args.command == "list-users":
+    for user in users:
+        print(user.name, "-", len(user.projects), "projects")
+
+storage.save(users)            
