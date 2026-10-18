@@ -14,6 +14,7 @@ python3 main.py add-task --project "CLI Tool" --title "Implement add-task"
 python3 main.py complete-task --project "CLI Tool" --title "Implement add-task"
 python3 main.py list
 python3 main.py list --user "Alex"
+python3 main.py list-users
 ```
 
 Use `python3 main.py --help` to see all commands.
