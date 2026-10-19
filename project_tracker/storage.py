@@ -1,4 +1,5 @@
 import json
+import sys
 from project_tracker.models import User, Project, Task
 
 FILE = "data.json"
@@ -22,8 +23,11 @@ def load():
     try:
         with open(FILE) as f:
             data = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
+    except FileNotFoundError:
         return []
+    except json.JSONDecodeError:
+        print("data.json is damaged. Fix it, or change it to [] to start again.")
+        sys.exit(1)
     users = []
     for u in data:
         projects = []
